@@ -16,6 +16,10 @@ public class CatalogPage extends AbstractPage {
     @FindBy(xpath = "//*[contains(@class,'checkbox-item')]")
     private List<Checkbox> checkboxes;
 
+    public Checkbox checkedCheckbox;
+
+    @FindBy(xpath = "//*[contains(@data-bind,'product.full_name')]")
+    private List<SearchResultBlock> searchResultBlocks;
     public CatalogPage(WebDriver driver) {
         super(driver);
         setPageURL("catalog");
@@ -28,16 +32,18 @@ public class CatalogPage extends AbstractPage {
     public void checkCheckbox(String name) {
         int i;
         for(i = 0;i < checkboxes.size(); i++) {
-           if (checkboxes.get(i).getCheckboxName().getText().equals(name)) {
-               return;
+           if (checkboxes.get(i).getCheckboxNameText().equals(name)) {
+               checkedCheckbox = checkboxes.get(i);;
            }
         }
-        Checkbox nch = new Checkbox(driver);
-        checkboxes.get(i).click
-//        checkboxes.forEach(checkbox -> {
-//            if (checkbox.getCheckboxName().getText().equals(name)) {
-//                Checkbox;
-//            }
-//        });
+        checkedCheckbox.getCheckboxName().click();
+    }
+
+    public void setCheckboxes(List<Checkbox> checkboxes) {
+        this.checkboxes = checkboxes;
+    }
+
+    public List<SearchResultBlock> getSearchResultBlocks() {
+        return searchResultBlocks;
     }
 }

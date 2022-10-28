@@ -21,4 +21,8 @@ public class Checkbox extends AbstractUIObject {
     public ExtendedWebElement getCheckboxName() {
         return checkboxName;
     }
+
+    public String getCheckboxNameText() {
+        return checkboxName.getText();
+    }
 }
