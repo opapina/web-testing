@@ -4,22 +4,30 @@ import com.qaprosoft.carina.core.foundation.AbstractTest;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
+import java.util.List;
+
 public class AdvancedSearchResultTest extends AbstractTest {
 
     @Test
-    public void humidifierBalluResultTest() {
+    public void verifyHumidifierBalluResultTest() {
         HomePage homePage = new HomePage(getDriver());
         homePage.open();
-        homePage.clickCatalogButton();
-        CatalogPage catalogPage = new CatalogPage(getDriver());
-        catalogPage.openHumidifierSection();
-        catalogPage.checkCheckbox("Ballu");
+        CatalogPage catalogPage = homePage.clickCatalogButton();
+        AdvancedSearchPage advancedSearchPage = catalogPage.openHumidifierSection();
+        FilterSearchPage filterSearchPage = advancedSearchPage.checkCheckbox("Ballu");
+        List<String> names = filterSearchPage.fullNames();
 
         SoftAssert sa = new SoftAssert();
-        catalogPage.getSearchResultBlocks()
-                        .forEach(searchResultBlock -> sa.assertTrue(searchResultBlock.getFullNameText().toLowerCase().contains("Ballu")));
+        names.forEach(name -> sa.assertTrue(name.contains("Ballu")));
         sa.assertAll();
 
         System.out.println("hello");
+    }
+
+    public void verifyCursConverterTest() {
+        HomePage homePage = new HomePage(getDriver());
+        homePage.open();
+        CursPage cursPage = homePage.clickCursButton();
+        cursPage.getDropDownCurrencyIn();
     }
 }

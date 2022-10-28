@@ -10,8 +10,8 @@ public class HomePage extends AbstractPage {
     @FindBy(xpath = "//*[contains(@class,'b-main-navigation__link')]")
     private ExtendedWebElement catalogButton;
 
-    @FindBy(xpath = "//*[contains(text(),'Барахолка')]")
-    private ExtendedWebElement baraholkaButton;
+    @FindBy(xpath = "//*[@class='g-top-i']//*[contains(@class,'amount')]")
+    private ExtendedWebElement cursButton;
 
     public HomePage(WebDriver driver) {
         super(driver);
@@ -21,11 +21,13 @@ public class HomePage extends AbstractPage {
     public ExtendedWebElement getCatalogButton() {
         return catalogButton;
     }
-    public void clickCatalogButton() {
+    public CatalogPage clickCatalogButton() {
         catalogButton.click();
+        return new CatalogPage(getDriver());
     }
 
-    public void clickBaraholkaButton() {
-        baraholkaButton.click();
+    public CursPage clickCursButton() {
+        cursButton.click();
+        return new CursPage(getDriver());
     }
 }

@@ -8,11 +8,19 @@ import org.openqa.selenium.support.FindBy;
 
 public class SearchResultBlock extends AbstractUIObject {
 
-    @FindBy(xpath = ".//*[contains(@data-bind,'product.full_name')]")
+    @FindBy(xpath = ".//*[@class='schema-product__title']//*[contains(@data-bind,'html: product.')]")
     private ExtendedWebElement fullName;
 
     public SearchResultBlock(WebDriver driver, SearchContext searchContext) {
         super(driver, searchContext);
+    }
+
+    public ExtendedWebElement getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(ExtendedWebElement fullName) {
+        this.fullName = fullName;
     }
 
     public String getFullNameText() {
