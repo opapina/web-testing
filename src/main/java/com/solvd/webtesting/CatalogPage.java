@@ -1,5 +1,6 @@
 package com.solvd.webtesting;
 
+import com.qaprosoft.carina.core.foundation.utils.R;
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.core.gui.AbstractPage;
 import org.openqa.selenium.WebDriver;
@@ -12,7 +13,7 @@ public class CatalogPage extends AbstractPage {
 
     public CatalogPage(WebDriver driver) {
         super(driver);
-        setPageURL("catalog");
+        setPageAbsoluteURL(R.CONFIG.get("PROD.catalog"));
     }
 
     public AdvancedSearchPage openHumidifierSection() {

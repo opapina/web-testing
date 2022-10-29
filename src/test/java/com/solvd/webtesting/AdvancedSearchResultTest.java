@@ -8,7 +8,7 @@ import java.util.List;
 
 public class AdvancedSearchResultTest extends AbstractTest {
 
-    @Test
+    @Test(testName = "verify that all search result contains 'Ballu' brand if checkbox selected")
     public void verifyHumidifierBalluResultTest() {
         HomePage homePage = new HomePage(getDriver());
         homePage.open();
@@ -18,16 +18,9 @@ public class AdvancedSearchResultTest extends AbstractTest {
         List<String> names = filterSearchPage.fullNames();
 
         SoftAssert sa = new SoftAssert();
-        names.forEach(name -> sa.assertTrue(name.contains("Ballu")));
+        names.forEach(name -> sa.assertTrue(name.contains("Ballu"),"The result doesn't have 'Ballu' in the name"));
         sa.assertAll();
-
-        System.out.println("hello");
     }
 
-    public void verifyCursConverterTest() {
-        HomePage homePage = new HomePage(getDriver());
-        homePage.open();
-        CursPage cursPage = homePage.clickCursButton();
-        cursPage.getDropDownCurrencyIn();
-    }
+
 }

@@ -1,13 +1,13 @@
 package com.solvd.webtesting;
 
-import com.qaprosoft.carina.core.gui.AbstractUIObject;
+import com.qaprosoft.carina.core.gui.AbstractPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class AdvancedSearchPage extends AbstractUIObject {
+public class AdvancedSearchPage extends AbstractPage {
 
     @FindBy(xpath = "//*[contains(@class,'checkbox-item')]")
     private final List<Checkbox> checkboxes = this.getCheckboxes();
