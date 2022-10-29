@@ -22,7 +22,7 @@ public class FilterSearchPage extends AbstractPage {
 
     public List<String> fullNames() {
         return searchResultBlocks.stream()
-                 .map(SearchResultBlock::getFullNameText)
+                .map(SearchResultBlock::getFullNameText)
                 .collect(Collectors.toList());
     }
 

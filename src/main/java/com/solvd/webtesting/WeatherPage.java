@@ -9,7 +9,7 @@ import org.openqa.selenium.support.FindBy;
 
 public class WeatherPage extends AbstractPage {
 
-    @FindBy(xpath="//*[@class='b-top-logo']//*[@href='https://www.onliner.by']")
+    @FindBy(xpath = "//*[@class='b-top-logo']//*[@href='https://www.onliner.by']")
     private ExtendedWebElement logoLinkButton;
 
     public WeatherPage(WebDriver driver) {

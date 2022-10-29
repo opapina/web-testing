@@ -16,7 +16,7 @@ public class HomePage extends AbstractPage {
     @FindBy(xpath = "//*[@class='g-top-i']//*[contains(@class,'phenomena-icon')]")
     private ExtendedWebElement weatherIcon;
 
-    @FindBy(xpath="//*[@class='g-top-i']//*[@class='_u js-weather']")
+    @FindBy(xpath = "//*[@class='g-top-i']//*[@class='_u js-weather']")
     private ExtendedWebElement weatherTempIcon;
 
     @FindBy(xpath = "//*[contains(@class,'auth-bar')]//*[contains(text(),'Вход')]")

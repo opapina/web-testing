@@ -8,10 +8,10 @@ import org.openqa.selenium.support.FindBy;
 
 public class ConverterPage extends AbstractPage {
 
-    @FindBy(xpath="//*[contains(@class,'converter-i')]//*[@id='currency-in']")
+    @FindBy(xpath = "//*[contains(@class,'converter-i')]//*[@id='currency-in']")
     private ExtendedWebElement dropDownCurrencyIn;
 
-    @FindBy(xpath="//*[contains(@class,'converter__out')]//*[@id='currency-out']")
+    @FindBy(xpath = "//*[contains(@class,'converter__out')]//*[@id='currency-out']")
     private ExtendedWebElement getDropDownCurrencyOut;
 
     public ConverterPage(WebDriver driver) {

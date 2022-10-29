@@ -18,8 +18,8 @@ public class WeatherPageTest extends AbstractTest {
         weatherPageSecond.clickLogoLinkButton();
 
         SoftAssert sa = new SoftAssert();
-        sa.assertEquals(urlFirst,"https://pogoda.onliner.by/", "The weatherIcon lead to incorrect URL");
-        sa.assertEquals(urlSecond,"https://pogoda.onliner.by/", "The weatherTempIcon lead to incorrect URL");
+        sa.assertEquals(urlFirst, "https://pogoda.onliner.by/", "The weatherIcon lead to incorrect URL");
+        sa.assertEquals(urlSecond, "https://pogoda.onliner.by/", "The weatherTempIcon lead to incorrect URL");
         sa.assertAll();
     }
 }

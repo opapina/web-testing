@@ -11,10 +11,10 @@ public class RegistrationPage extends AbstractPage {
     @FindBy(xpath = "//*[contains(@class,'auth-input__wrapper')]//*[contains(@placeholder,'e-mail')]")
     private ExtendedWebElement loginField;
 
-    @FindBy(xpath = "//*[@class='auth-form__line auth-form__line_condensed']//*[contains(@type,'password')]")
+    @FindBy(xpath = "//*[contains(@class,'auth-input__wrapper')]//*[contains(@placeholder,'Придумайте пароль')]")
     private ExtendedWebElement passwordField;
 
-    @FindBy(xpath = "//*[contains(@autocomplete,'repeatPassword')]")
+    @FindBy(xpath = "//*[contains(@class,'auth-input__wrapper')]//*[contains(@placeholder,'Повторите пароль')]")
     private ExtendedWebElement repeatPasswordField;
 
     @FindBy(xpath = "//*[@class='i-checkbox__faux']")
@@ -22,6 +22,15 @@ public class RegistrationPage extends AbstractPage {
 
     @FindBy(xpath = "//*[@type='submit']")
     private ExtendedWebElement registrationButton;
+
+    @FindBy(xpath = " //*[contains(@href,'http://mail')]")
+    private ExtendedWebElement moveToEmailButton;
+
+    @FindBy(xpath = "//*[contains(text(),'Некорректный')]")
+    private ExtendedWebElement validateEmailMessage;
+
+    @FindBy(xpath = "//*[contains(text(),'Пароль должен быть')]")
+    private ExtendedWebElement validatePasswordMessage;
 
     public RegistrationPage(WebDriver driver) {
         super(driver);
@@ -33,15 +42,20 @@ public class RegistrationPage extends AbstractPage {
     }
 
     public void typePassword(String password) {
-        loginField.type(password);
+        passwordField.type(password);
+    }
+
+    public void repeatPassword(String password) {
+        repeatPasswordField.type(password);
     }
 
     public void checkedCheckbox() {
         checkboxPolicy.check();
     }
 
-    public void clickRegistrationButton() {
+    public RegistrationPage clickRegistrationButton() {
         registrationButton.click();
+        return new RegistrationPage(getDriver());
     }
 
     public ExtendedWebElement getCheckboxPolicy() {
@@ -50,10 +64,6 @@ public class RegistrationPage extends AbstractPage {
 
     public ExtendedWebElement getRegistrationButton() {
         return registrationButton;
-    }
-
-    public void repeatPassword(String password) {
-        loginField.type(password);
     }
 
     public ExtendedWebElement getLoginField() {
@@ -66,5 +76,17 @@ public class RegistrationPage extends AbstractPage {
 
     public ExtendedWebElement getRepeatPasswordField() {
         return repeatPasswordField;
+    }
+
+    public ExtendedWebElement getMoveToEmailButton() {
+        return moveToEmailButton;
+    }
+
+    public ExtendedWebElement getValidateEmailMessage() {
+        return validateEmailMessage;
+    }
+
+    public ExtendedWebElement getValidatePasswordMessage() {
+        return validatePasswordMessage;
     }
 }

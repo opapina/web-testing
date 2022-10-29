@@ -18,7 +18,7 @@ public class AdvancedSearchPage extends AbstractPage {
         List<String> checkboxNames = new ArrayList<>();
         checkboxes.forEach(checkbox -> checkboxNames.add(checkbox.getCheckboxNameText()));
         int numberOfCheckedCheckbox = 0;
-        for(int i = 0;i < checkboxNames.size(); i++) {
+        for (int i = 0; i < checkboxNames.size(); i++) {
             if (checkboxNames.get(i).equals(name)) {
                 numberOfCheckedCheckbox = i;
             }

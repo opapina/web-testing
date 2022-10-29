@@ -11,7 +11,7 @@ public class Checkbox extends AbstractUIObject {
     @FindBy(xpath = ".//*contains(@class,'i-checkbox')]")
     private ExtendedWebElement checkbox;
 
-    @FindBy(xpath= ".//*[contains(@class,'schema-filter__checkbox-text')]")
+    @FindBy(xpath = ".//*[contains(@class,'schema-filter__checkbox-text')]")
     private ExtendedWebElement checkboxName;
 
     public Checkbox(WebDriver driver, SearchContext searchContext) {
