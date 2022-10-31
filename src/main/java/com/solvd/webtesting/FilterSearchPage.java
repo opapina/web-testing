@@ -12,6 +12,9 @@ public class FilterSearchPage extends AbstractPage {
     @FindBy(xpath = "//*[contains(@class,'schema-product__group')]")
     private List<SearchResultBlock> searchResultBlocks;
 
+    @FindBy(xpath = "//*[@class='popover-style__content']")
+    private PopoverBlock popoverBlock;
+
     public FilterSearchPage(WebDriver driver) {
         super(driver);
     }
@@ -20,7 +23,10 @@ public class FilterSearchPage extends AbstractPage {
         return searchResultBlocks;
     }
 
-    public List<String> fullNames() {
+    public List<String> getFullNames() {
+        if (popoverBlock.isUIObjectPresent()) {
+            getPopoverBlock().clickYesButton();
+        }
         return searchResultBlocks.stream()
                 .map(SearchResultBlock::getFullNameText)
                 .collect(Collectors.toList());
@@ -28,5 +34,9 @@ public class FilterSearchPage extends AbstractPage {
 
     public void setSearchResultBlocks(List<SearchResultBlock> searchResultBlocks) {
         this.searchResultBlocks = searchResultBlocks;
+    }
+
+    public PopoverBlock getPopoverBlock() {
+        return popoverBlock;
     }
 }

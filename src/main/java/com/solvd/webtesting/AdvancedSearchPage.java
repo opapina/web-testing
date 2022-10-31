@@ -9,10 +9,12 @@ import java.util.List;
 
 public class AdvancedSearchPage extends AbstractPage {
 
+    public AdvancedSearchPage(WebDriver driver) {
+        super(driver);
+    }
+
     @FindBy(xpath = "//*[contains(@class,'checkbox-item')]")
     private final List<Checkbox> checkboxes = this.getCheckboxes();
-
-    public Checkbox checkedCheckbox;
 
     public FilterSearchPage checkCheckbox(String name) {
         List<String> checkboxNames = new ArrayList<>();
@@ -23,13 +25,9 @@ public class AdvancedSearchPage extends AbstractPage {
                 numberOfCheckedCheckbox = i;
             }
         }
-        checkedCheckbox = checkboxes.get(numberOfCheckedCheckbox);
+        Checkbox checkedCheckbox = checkboxes.get(numberOfCheckedCheckbox);
         checkedCheckbox.getCheckboxName().check();
         return new FilterSearchPage(getDriver());
-    }
-
-    public AdvancedSearchPage(WebDriver driver) {
-        super(driver);
     }
 
     private List<Checkbox> getCheckboxes() {
